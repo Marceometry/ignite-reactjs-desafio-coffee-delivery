@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import appBackground from '@/assets/app-background.svg'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -13,9 +14,19 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    height: 100vh;
     color: ${(props) => props.theme['gray-900']};
     background-color: ${(props) => props.theme['gray-100']};
+    background-image: url(${appBackground});
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
     -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
   }
 
   body, input, textarea, button {

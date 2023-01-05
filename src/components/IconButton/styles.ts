@@ -40,7 +40,9 @@ const baseIconButtonStyle = css<IconButtonContainerProps>`
   }
 
   &::after {
-    content: '${(props) => (props.badgeNumber ? props.badgeNumber : '')}';
+    /* content: '${(props) => (props.badgeNumber ? props.badgeNumber : '')}'; */
+    ${(props) =>
+      props.badgeNumber ? 'content:"' + props.badgeNumber + '";' : ''}
     color: ${(props) => props.theme[palettes[props.palette].background]};
     background-color: ${(props) => props.theme[palettes[props.palette].color]};
     border-radius: 50%;

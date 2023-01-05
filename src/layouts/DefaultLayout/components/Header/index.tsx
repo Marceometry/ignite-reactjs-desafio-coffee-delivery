@@ -17,7 +17,7 @@ export const Header = () => {
           <span>Porto Alegre, RS</span>
         </LocationBadge>
 
-        <IconButton asLink to="/" badgeNumber={2} />
+        <IconButton asLink to="/" />
       </div>
     </HeaderContainer>
   )
