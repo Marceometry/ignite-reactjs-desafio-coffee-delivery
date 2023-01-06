@@ -1,8 +1,8 @@
+import { NavLink } from 'react-router-dom'
 import { MapPin } from 'phosphor-react'
 import logoCoffeeDelivery from '@/assets/logo-coffee-delivery.svg'
 import { IconButton } from '@/components'
 import { HeaderContainer, LocationBadge } from './styles'
-import { NavLink } from 'react-router-dom'
 
 export const Header = () => {
   return (

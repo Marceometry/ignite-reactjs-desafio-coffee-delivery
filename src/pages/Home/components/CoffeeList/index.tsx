@@ -1,4 +1,5 @@
 import { coffeeList } from '@/constants'
+import { formatPriceInCents } from '@/utils'
 import { IconButton, InputNumber, Tag } from '@/components'
 import {
   CoffeeCardActions,
@@ -34,9 +35,7 @@ export const CoffeeList = () => {
             <CoffeeCardFooter>
               <CoffeeCardPrice>
                 <span>R$</span>
-                <strong>
-                  {(item.priceInCents / 100).toFixed(2).toLocaleString()}
-                </strong>
+                <strong>{formatPriceInCents(item.priceInCents)}</strong>
               </CoffeeCardPrice>
 
               <CoffeeCardActions>

@@ -1,5 +1,5 @@
-import { Minus, Plus } from 'phosphor-react'
 import React, { useEffect, useState } from 'react'
+import { Minus, Plus } from 'phosphor-react'
 import { InputNumberContainer } from './styles'
 
 interface InputNumberProps

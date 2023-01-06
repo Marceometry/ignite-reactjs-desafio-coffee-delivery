@@ -1,5 +1,5 @@
-import { Input, Select } from '@/components'
 import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import { Input, Select } from '@/components'
 import {
   PaymentInfoAddressForm,
   PaymentInfoBox,
