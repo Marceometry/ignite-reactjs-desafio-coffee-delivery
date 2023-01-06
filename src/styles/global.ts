@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     background-image: url(${appBackground});
     background-repeat: no-repeat;
     background-position: top;
-    background-size: cover;
+    background-size: contain;
     -webkit-font-smoothing: antialiased;
   }
   

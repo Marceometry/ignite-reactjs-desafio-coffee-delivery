@@ -26,7 +26,7 @@ export const IconButton = ({
   to = '/',
   onClick,
 }: IconButtonProps) => {
-  const props = { palette: colorPalette, badgeNumber }
+  const props = { palette: colorPalette, badge: badgeNumber }
   const Icon = icons[icon]
 
   return asLink ? (

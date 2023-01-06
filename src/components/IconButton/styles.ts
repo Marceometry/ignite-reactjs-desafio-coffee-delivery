@@ -18,7 +18,7 @@ export const palettes = {
 
 type IconButtonContainerProps = {
   palette: keyof typeof palettes
-  badgeNumber?: number
+  badge?: number
 }
 
 const baseIconButtonStyle = css<IconButtonContainerProps>`
@@ -40,9 +40,7 @@ const baseIconButtonStyle = css<IconButtonContainerProps>`
   }
 
   &::after {
-    /* content: '${(props) => (props.badgeNumber ? props.badgeNumber : '')}'; */
-    ${(props) =>
-      props.badgeNumber ? 'content:"' + props.badgeNumber + '";' : ''}
+    ${(props) => (props.badge ? 'content:"' + props.badge + '";' : '')}
     color: ${(props) => props.theme[palettes[props.palette].background]};
     background-color: ${(props) => props.theme[palettes[props.palette].color]};
     border-radius: 50%;
