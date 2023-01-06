@@ -10,7 +10,7 @@ export const CartInfoContainer = styled.div`
   background-color: ${(props) => props.theme['gray-200']};
 `
 
-export const CartListItem = styled.div`
+export const CartListItemContainer = styled.div`
   display: flex;
   gap: 1.25rem;
   padding: 0.5rem 0 1.5rem;

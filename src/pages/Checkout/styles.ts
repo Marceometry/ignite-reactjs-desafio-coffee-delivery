@@ -12,3 +12,10 @@ export const CheckoutContainer = styled.main`
     color: ${(props) => props.theme['gray-800']};
   }
 `
+
+export const CheckoutEmptyCartContainer = styled.main`
+  padding-top: 2.5rem;
+  width: 100%;
+  display: grid;
+  place-items: center;
+`

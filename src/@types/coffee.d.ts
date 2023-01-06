@@ -6,3 +6,7 @@ export type CoffeeItem = {
   description: string
   priceInCents: number
 }
+
+export type CoffeeItemInCart = CoffeeItem & {
+  quantity?: number
+}
