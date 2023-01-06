@@ -35,14 +35,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
-  input, textarea {
-    color: ${(props) => props.theme['gray-700']};
-    background-color: ${(props) => props.theme['gray-300']};
-    border: 1px solid ${(props) => props.theme['gray-400']};
-  }
-
-  input::placeholder, textarea::placeholder {
-    color: ${(props) => props.theme['gray-600']};
+  input {
+    background: none;
+    border: none;
+    color: inherit;
   }
 
   button, a {

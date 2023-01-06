@@ -1,3 +1,5 @@
 export * from './IconButton'
 export * from './IconCircle'
+export * from './Input'
+export * from './InputNumber'
 export * from './Tag'

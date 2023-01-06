@@ -11,8 +11,8 @@ export const palettes = {
   purple: {
     color: 'gray-200',
     background: 'purple-700',
-    hoverColor: 'purple-700',
-    hoverBackground: 'purple-100',
+    hoverColor: 'gray-200',
+    hoverBackground: 'purple-500',
   },
 } as const
 

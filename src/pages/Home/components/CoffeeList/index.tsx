@@ -1,6 +1,14 @@
 import { coffeeList } from '@/constants'
-import { CoffeeCard } from './CoffeeCard'
-import { CoffeeListContainer, CoffeeListItemsContainer } from './styles'
+import { IconButton, InputNumber, Tag } from '@/components'
+import {
+  CoffeeCardActions,
+  CoffeeCardContainer,
+  CoffeeCardFooter,
+  CoffeeCardPrice,
+  CoffeeCardTagsContainer,
+  CoffeeListContainer,
+  CoffeeListItemsContainer,
+} from './styles'
 
 export const CoffeeList = () => {
   return (
@@ -9,7 +17,34 @@ export const CoffeeList = () => {
 
       <CoffeeListItemsContainer>
         {coffeeList.map((item) => (
-          <CoffeeCard key={item.id} item={item} />
+          <CoffeeCardContainer key={item.id}>
+            <img
+              src={item.imageUrl}
+              alt={`Ilustração do café "${item.name}"`}
+            />
+            <CoffeeCardTagsContainer>
+              {item.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </CoffeeCardTagsContainer>
+
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
+
+            <CoffeeCardFooter>
+              <CoffeeCardPrice>
+                <span>R$</span>
+                <strong>
+                  {(item.priceInCents / 100).toFixed(2).toLocaleString()}
+                </strong>
+              </CoffeeCardPrice>
+
+              <CoffeeCardActions>
+                <InputNumber />
+                <IconButton colorPalette="purple" onClick={() => {}} />
+              </CoffeeCardActions>
+            </CoffeeCardFooter>
+          </CoffeeCardContainer>
         ))}
       </CoffeeListItemsContainer>
     </CoffeeListContainer>
