@@ -14,9 +14,10 @@ export const InputNumberContainer = styled.div`
     place-items: center;
     background: none;
     transition: color 0.2s;
+    color: ${(props) => props.theme['purple-500']};
 
-    &:hover {
-      color: ${(props) => props.theme['purple-500']};
+    &:hover:not(:disabled) {
+      color: ${(props) => props.theme['purple-700']};
     }
   }
 

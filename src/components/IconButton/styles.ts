@@ -33,7 +33,7 @@ const baseIconButtonStyle = css<IconButtonContainerProps>`
   transition-property: color, background-color;
   transition-duration: 0.2s;
 
-  &:hover {
+  &:hover:not(:disabled) {
     color: ${(props) => props.theme[palettes[props.palette].hoverColor]};
     background-color: ${(props) =>
       props.theme[palettes[props.palette].hoverBackground]};

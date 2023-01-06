@@ -36,7 +36,7 @@ export const SelectOption = styled.button<SelectOptionProps>`
           border: 1px solid ${(props) => props.theme['purple-500']};
         `
       : css`
-          &:hover {
+          &:hover:not(:disabled) {
             background-color: ${(props) => props.theme['gray-500']};
             border-color: ${(props) => props.theme['gray-500']};
           }

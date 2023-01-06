@@ -19,7 +19,7 @@ export const InputNumber = (props: InputNumberProps) => {
 
   return (
     <InputNumberContainer>
-      <button onClick={handleMinus}>
+      <button onClick={handleMinus} disabled={value === 0}>
         <Minus />
       </button>
       <input
@@ -28,7 +28,7 @@ export const InputNumber = (props: InputNumberProps) => {
         value={String(value || '').padStart(2, '0')}
         onChange={(e) => setValue(Number(e.target.value))}
       />
-      <button onClick={handlePlus}>
+      <button onClick={handlePlus} disabled={value === 99}>
         <Plus />
       </button>
     </InputNumberContainer>

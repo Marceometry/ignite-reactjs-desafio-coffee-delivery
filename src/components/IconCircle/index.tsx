@@ -1,4 +1,11 @@
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import {
+  Coffee,
+  CurrencyDollar,
+  MapPin,
+  Package,
+  ShoppingCart,
+  Timer,
+} from 'phosphor-react'
 import { colors, IconCircleContainer } from './styles'
 
 const icons = {
@@ -6,6 +13,8 @@ const icons = {
   timer: Timer,
   package: Package,
   coffee: Coffee,
+  mapPin: MapPin,
+  currency: CurrencyDollar,
 }
 
 type IconCircleProps = {

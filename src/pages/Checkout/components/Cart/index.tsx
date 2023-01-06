@@ -9,10 +9,17 @@ import {
   CartListItem,
   RemoveItemButton,
 } from './styles'
+import { useNavigate } from 'react-router-dom'
 
 const list = [coffeeList[0], coffeeList[1]]
 
 export const Cart = () => {
+  const navigate = useNavigate()
+
+  const handleFormSubmit = () => {
+    navigate('/success')
+  }
+
   return (
     <CartContainer>
       <h2>Cafés selecionados</h2>
@@ -49,7 +56,7 @@ export const Cart = () => {
             <strong>R$ 33,20</strong>
           </div>
 
-          <button>Confirmar Pedido</button>
+          <button onClick={handleFormSubmit}>Confirmar Pedido</button>
         </CartFinalPrice>
       </CartInfoContainer>
     </CartContainer>
