@@ -23,8 +23,6 @@ export function CheckoutContextProvider({
   const [paymentData, setPaymentData] = useState<CheckoutFormData | null>(null)
   const paymentFormId = 'checkout-payment-form'
 
-  console.log(itemsInCart)
-
   const updateItemInCart = useCallback((id: string, quantity: number) => {
     setItemsInCart((state) => {
       const newItem = { id, quantity }

@@ -3,8 +3,15 @@ import { MapPin } from 'phosphor-react'
 import logoCoffeeDelivery from '@/assets/logo-coffee-delivery.svg'
 import { IconButton } from '@/components'
 import { HeaderContainer, LocationBadge } from './styles'
+import { useCheckoutContext } from '@/contexts'
 
 export const Header = () => {
+  const { itemsInCart } = useCheckoutContext()
+
+  const itemsInCartQuantity = itemsInCart.reduce((acc, item) => {
+    return acc + item.quantity
+  }, 0)
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -17,7 +24,7 @@ export const Header = () => {
           <span>Porto Alegre, RS</span>
         </LocationBadge>
 
-        <IconButton asLink to="/checkout" />
+        <IconButton asLink to="/checkout" badgeNumber={itemsInCartQuantity} />
       </div>
     </HeaderContainer>
   )

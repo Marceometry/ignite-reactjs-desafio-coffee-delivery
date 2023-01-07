@@ -46,7 +46,11 @@ export const Cart = () => {
             </strong>
           </div>
 
-          <button type="submit" form={paymentFormId}>
+          <button
+            type="submit"
+            form={paymentFormId}
+            disabled={!totalItemsPrice}
+          >
             Confirmar Pedido
           </button>
         </CartFinalPrice>
