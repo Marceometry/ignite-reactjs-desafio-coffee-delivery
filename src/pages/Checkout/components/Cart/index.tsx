@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { CoffeeItemInCart } from '@/@types/coffee'
 import { useCheckoutContext } from '@/contexts'
 import { formatPriceInCents } from '@/utils'
@@ -9,8 +8,7 @@ import { CartContainer, CartFinalPrice, CartInfoContainer } from './styles'
 const deliveryCostInCents = 350
 
 export const Cart = () => {
-  const navigate = useNavigate()
-  const { itemsInCart } = useCheckoutContext()
+  const { itemsInCart, paymentFormId } = useCheckoutContext()
 
   const itemList = coffeeList.reduce((acc, coffee) => {
     const itemInCart = itemsInCart.find((item) => item.id === coffee.id)
@@ -22,10 +20,6 @@ export const Cart = () => {
     (acc, item) => acc + item.priceInCents * (item.quantity || 0),
     0,
   )
-
-  const handleFormSubmit = () => {
-    navigate('/success')
-  }
 
   return (
     <CartContainer>
@@ -52,7 +46,9 @@ export const Cart = () => {
             </strong>
           </div>
 
-          <button onClick={handleFormSubmit}>Confirmar Pedido</button>
+          <button type="submit" form={paymentFormId}>
+            Confirmar Pedido
+          </button>
         </CartFinalPrice>
       </CartInfoContainer>
     </CartContainer>

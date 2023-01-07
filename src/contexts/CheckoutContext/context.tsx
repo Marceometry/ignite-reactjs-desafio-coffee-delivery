@@ -1,24 +1,17 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useCallback,
-} from 'react'
-
-type CartItem = {
-  id: string
-  quantity: number
-}
+import React, { createContext, useCallback, useContext, useState } from 'react'
+import { CartItem, CheckoutFormData } from './types'
 
 export type CheckoutContextData = {
   itemsInCart: CartItem[]
   updateItemInCart: (id: string, quantity: number) => void
   removeItemFromCart: (id: string) => void
+  paymentFormId: string
+  submitCheckoutForm: (data: CheckoutFormData) => void
+  paymentData: CheckoutFormData | null
 }
 
 export type CheckoutContextProviderProps = {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export const CheckoutContext = createContext({} as CheckoutContextData)
@@ -27,6 +20,8 @@ export function CheckoutContextProvider({
   children,
 }: CheckoutContextProviderProps) {
   const [itemsInCart, setItemsInCart] = useState<CartItem[]>([])
+  const [paymentData, setPaymentData] = useState<CheckoutFormData | null>(null)
+  const paymentFormId = 'checkout-payment-form'
 
   console.log(itemsInCart)
 
@@ -49,9 +44,18 @@ export function CheckoutContextProvider({
     setItemsInCart((state) => state.filter((item) => item.id !== id))
   }
 
+  const submitCheckoutForm = (data: CheckoutFormData) => setPaymentData(data)
+
   return (
     <CheckoutContext.Provider
-      value={{ itemsInCart, updateItemInCart, removeItemFromCart }}
+      value={{
+        itemsInCart,
+        updateItemInCart,
+        removeItemFromCart,
+        paymentFormId,
+        submitCheckoutForm,
+        paymentData,
+      }}
     >
       {children}
     </CheckoutContext.Provider>

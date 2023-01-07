@@ -1,7 +1,22 @@
+import { useNavigate } from 'react-router-dom'
 import { IconCircle } from '@/components'
+import { PaymentMethods, useCheckoutContext } from '@/contexts'
 import { OrderInfoCard, OrderInfoCardItem, OrderInfoContainer } from './styles'
+import { useEffect } from 'react'
 
 export const OrderInfo = () => {
+  const { paymentData } = useCheckoutContext()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!paymentData) navigate('/checkout')
+  }, [navigate, paymentData])
+
+  if (!paymentData) return null
+
+  const address = paymentData.address
+  const paymentMethod = PaymentMethods[paymentData.paymentMethod]
+
   return (
     <OrderInfoContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -13,9 +28,15 @@ export const OrderInfo = () => {
             <IconCircle icon="mapPin" backgroundColor="purple" />
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  {address.street}, {address.number}
+                  {address.complement ? ` - ${address.complement}` : ''}
+                </strong>
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>
+                {address.district} - {address.city}, {address.uf}
+              </span>
             </div>
           </OrderInfoCardItem>
           <OrderInfoCardItem>
@@ -29,7 +50,7 @@ export const OrderInfo = () => {
             <IconCircle icon="currency" backgroundColor="yellow-dark" />
             <div>
               <span>Pagamento na entrega</span>
-              <strong>Cartão de Crédito</strong>
+              <strong>{paymentMethod}</strong>
             </div>
           </OrderInfoCardItem>
         </div>
