@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const TagContainer = styled.span`
   display: grid;
   place-items: center;
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   border-radius: 100px;
   font-size: 0.625rem;
   font-weight: 700;

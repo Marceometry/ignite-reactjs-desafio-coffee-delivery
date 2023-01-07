@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledInput } from './styles'
+import { InputContainer, StyledInput } from './styles'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   grow?: boolean
@@ -7,7 +7,13 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = (props: InputProps) => {
-  const { grow, width, ...rest } = props
-
-  return <StyledInput {...rest} grow={grow} width={width} />
+  return (
+    <InputContainer
+      grow={props.grow}
+      width={props.width}
+      required={props.required}
+    >
+      <StyledInput {...props} />
+    </InputContainer>
+  )
 }

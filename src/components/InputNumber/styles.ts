@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const InputNumberContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px;
+  gap: 0.25rem;
+  padding: 0.5rem;
   border-radius: 6px;
   color: ${(props) => props.theme['gray-900']};
   background-color: ${(props) => props.theme['gray-400']};
